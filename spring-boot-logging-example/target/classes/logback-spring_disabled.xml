@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<springProfile name="default">
+		<appender name="CONSOLE"
+			class="ch.qos.logback.core.ConsoleAppender">
+			<encoder>
+				<pattern>%msg%n</pattern>
+			</encoder>
+		</appender>
+
+		<appender name="FILE"
+			class="ch.qos.logback.core.FileAppender">
+			<file>myApp_default.log</file>
+			<encoder>
+				<pattern>%date %level [%thread] %logger{10} [%file:%line] %msg%n</pattern>
+			</encoder>
+		</appender>
+
+		<root level="DEBUG">
+			<appender-ref ref="CONSOLE" />
+		</root>
+		<root level="DEBUG">
+			<appender-ref ref="FILE" />
+		</root>
+	</springProfile>
+	<springProfile name="PROD">
+		<appender name="CONSOLE"
+			class="ch.qos.logback.core.ConsoleAppender">
+			<encoder>
+				<pattern>%msg%n</pattern>
+			</encoder>
+		</appender>
+
+		<appender name="FILE"
+			class="ch.qos.logback.core.FileAppender">
+			<file>myApp_prod.log</file>
+			<encoder>
+				<pattern>%date %level [%thread] %logger{10} [%file:%line] %msg%n</pattern>
+			</encoder>
+		</appender>
+
+		<root level="DEBUG">
+			<appender-ref ref="CONSOLE" />
+		</root>
+		<root level="INFO">
+			<appender-ref ref="FILE" />
+		</root>
+	</springProfile>
+</configuration>
