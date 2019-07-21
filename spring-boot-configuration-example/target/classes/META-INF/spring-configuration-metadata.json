@@ -1,0 +1,48 @@
+{
+  "groups": [
+    {
+      "name": "app",
+      "type": "com.asb.example.AppConfig",
+      "sourceType": "com.asb.example.AppConfig"
+    },
+    {
+      "name": "app.my-config",
+      "type": "com.asb.example.AppConfig$MyConfig",
+      "sourceType": "com.asb.example.AppConfig",
+      "sourceMethod": "public com.asb.example.AppConfig.MyConfig getMyConfig() "
+    }
+  ],
+  "properties": [
+    {
+      "name": "app.my-config.description",
+      "type": "java.lang.String",
+      "sourceType": "com.asb.example.AppConfig$MyConfig"
+    },
+    {
+      "name": "app.my-config.description",
+      "type": "java.lang.String",
+      "sourceType": "com.asb.example.AppConfig$MyConfig"
+    },
+    {
+      "name": "app.my-config.id",
+      "type": "java.lang.String",
+      "sourceType": "com.asb.example.AppConfig$MyConfig"
+    },
+    {
+      "name": "app.my-config.id",
+      "type": "java.lang.String",
+      "sourceType": "com.asb.example.AppConfig$MyConfig"
+    },
+    {
+      "name": "app.prop",
+      "type": "java.util.Map<java.lang.String,java.lang.String>",
+      "sourceType": "com.asb.example.AppConfig"
+    },
+    {
+      "name": "app.props",
+      "type": "java.util.List<java.lang.String>",
+      "sourceType": "com.asb.example.AppConfig"
+    }
+  ],
+  "hints": []
+}
