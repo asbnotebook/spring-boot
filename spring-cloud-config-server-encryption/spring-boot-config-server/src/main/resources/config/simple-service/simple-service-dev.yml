@@ -1,0 +1,3 @@
+my:
+  prop: my test property
+  encrypted-prop: "{cipher}010efcfa6df24c966e975213b5d2c0dc74a3bd485cbecc04dee915cbbf7b7d55"
