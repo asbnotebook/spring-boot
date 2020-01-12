@@ -1,0 +1,21 @@
+server:
+  servlet:
+    context-path: /students
+StudentController:
+    findStudents: Find All Studen Details.
+    saveStudent: Save Student Details.
+    updateStudent: Update Student Details.
+    deleteStudentById: Delete Student Details by ID.
+
+spring:
+  datasource:
+    url: jdbc:h2:~/asbdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    data-username: sa
+    data-password:
+    data: classpath:/data.sql
+  h2:
+    console:
+      enabled: true
+      path: /h2-db-console
+      settings:
+        trace: true
