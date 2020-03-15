@@ -1,0 +1,12 @@
+2020-03-15 11:59:51.595  INFO 6492 --- [main] c.a.SpringBootElkExampleApplication      : Starting SpringBootElkExampleApplication on ASB-PC with PID 6492 (C:\Users\ASB\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\spring-boot-elk-example\target\classes started by ASB in C:\Users\ASB\Documents\workspace-spring-tool-suite-4-4.0.1.RELEASE\spring-boot-elk-example)
+2020-03-15 11:59:51.605  INFO 6492 --- [main] c.a.SpringBootElkExampleApplication      : No active profile set, falling back to default profiles: default
+2020-03-15 11:59:55.610  INFO 6492 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-03-15 11:59:55.642  INFO 6492 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-15 11:59:55.644  INFO 6492 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2020-03-15 11:59:56.103  INFO 6492 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-15 11:59:56.104  INFO 6492 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 4258 ms
+2020-03-15 11:59:56.707  INFO 6492 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-15 11:59:57.324  INFO 6492 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-15 11:59:57.330  INFO 6492 --- [main] c.a.SpringBootElkExampleApplication      : Started SpringBootElkExampleApplication in 7.811 seconds (JVM running for 10.476)
+2020-03-15 12:00:47.247  INFO 6492 --- [RMI TCP Connection(7)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2020-03-15 12:00:47.257  INFO 6492 --- [RMI TCP Connection(7)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
