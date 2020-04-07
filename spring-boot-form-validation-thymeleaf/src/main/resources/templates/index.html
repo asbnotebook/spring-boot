@@ -1,0 +1,46 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Registration page</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+	<body>
+		<div align="center" class="col-md-12">
+			<h2>Welcome to Student registration page</h2>
+			<div class="col-md-6">
+				<form action="#" th:action="@{/save-student}" th:object="${student}" method="post">
+					<div class="form-group">
+						<label for="name">Name:</label> 
+						<input type="text" class="form-control" id="name" th:field="*{name}">
+						<p class="alert alert-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">
+					</div>
+					<div class="form-group">
+						<label for="subjectCount">Subjects Count:</label> 
+						<input type="number" class="form-control" id="subjectCount" th:field="*{subjectCount}">
+						<p class="alert alert-danger" th:if="${#fields.hasErrors('subjectCount')}" th:errors="*{subjectCount}" />
+					</div>
+					<div class="form-group">
+						<label for="grade">Grade:</label> 
+						<input type="number" class="form-control" id="grade" th:field="*{grade}" />
+						<p class="alert alert-danger" th:if="${#fields.hasErrors('grade')}" th:errors="*{grade}" />
+					</div>
+					<div class="form-group">
+						<label for="mobile">Mobile Number:</label> 
+						<input type="number" class="form-control" id="mobile" th:field="*{mobileNo}" />
+						<p class="alert alert-danger" th:if="${#fields.hasErrors('mobileNo')}" th:errors="*{mobileNo}" />
+					</div>
+					<div class="form-group">
+						<label for="bd">Birth Date:</label> 
+						<input type="date" class="form-control" id="bd" th:field="*{birthDate}" />
+						<p class="alert alert-danger" th:if="${#fields.hasErrors('birthDate')}" th:errors="*{birthDate}" />
+					</div>
+					<div class="form-group">
+						<button type="submit" class="btn btn-primary">Submit</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>
