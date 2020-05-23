@@ -1,0 +1,31 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Auto-complete example JQuery</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet"
+	href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script th:inline="javascript">
+	var real_data = /*[[${names}]]*/'noValue';
+	$(document).ready(function() {
+		$("#nameInput").autocomplete({
+			minLength : 1,
+			source : real_data,
+			select : function(e, ui) {
+				$("#nameOutput").text('You have selected : ' + ui.item.value);
+				return ui.item.value;
+			}
+		})
+	});
+</script>
+</head>
+<body>
+	<div class="ui-widget">
+		<label for="nameInput">search Name: </label><input id="nameInput" />
+		<h3 id="nameOutput"></h3>
+	</div>
+</body>
+</html>
