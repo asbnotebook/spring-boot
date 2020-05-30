@@ -1,0 +1,38 @@
+<!doctype html>
+<head>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<h1>Employee CRUD operation with Mustache</h1>
+
+		<a href="/create">Create New Employee</a>
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">Id</th>
+					<th scope="col">Name</th>
+					<th scope="col"></th>
+					<th scope="col"></th>
+				</tr>
+			</thead>
+			<tbody>
+				{{#employees}}
+				<tr>
+					<th scope="row">{{id}}</th>
+					<td>{{name}}</td>
+					<td><a href="/update/{{id}}">Update</a></td>
+					<td><a href="/delete/{{id}}">Delete</a></td>
+				</tr>
+				{{/employees}}
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
