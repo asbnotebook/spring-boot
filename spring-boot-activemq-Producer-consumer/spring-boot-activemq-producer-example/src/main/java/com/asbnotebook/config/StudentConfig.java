@@ -14,14 +14,6 @@ import org.springframework.jms.support.converter.MessageType;
 @Configuration
 public class StudentConfig {
 
-	@Bean
-	public JmsListenerContainerFactory<?> jmsFactory(ConnectionFactory connectionFactory,
-			DefaultJmsListenerContainerFactoryConfigurer configurer) {
-		DefaultJmsListenerContainerFactory factory = new DefaultJmsListenerContainerFactory();
-		configurer.configure(factory, connectionFactory);
-		return factory;
-	}
-
 	@Bean // Serialize message content to json using TextMessage
 	public MessageConverter jacksonJmsMessageConverter() {
 		MappingJackson2MessageConverter converter = new MappingJackson2MessageConverter();
