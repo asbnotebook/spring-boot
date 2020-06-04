@@ -18,6 +18,7 @@ public class StudentConfig {
 	public JmsListenerContainerFactory<?> jmsFactory(ConnectionFactory connectionFactory,
 			DefaultJmsListenerContainerFactoryConfigurer configurer) {
 		DefaultJmsListenerContainerFactory factory = new DefaultJmsListenerContainerFactory();
+		factory.setMessageConverter(jacksonJmsMessageConverter());
 		configurer.configure(factory, connectionFactory);
 		return factory;
 	}
