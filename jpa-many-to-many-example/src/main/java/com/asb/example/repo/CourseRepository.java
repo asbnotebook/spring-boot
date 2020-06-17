@@ -8,4 +8,5 @@ import com.asb.example.model.Course;
 @Repository
 public interface CourseRepository extends JpaRepository<Course, Integer> {
 
+	public Course findByName(String courseName);
 }
