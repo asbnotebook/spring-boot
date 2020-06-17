@@ -2,15 +2,15 @@ package com.asb.example.service;
 
 import java.util.List;
 
-import com.asb.example.model.Student;
+import com.asb.example.dto.StudentDto;
 
 public interface StudentService {
 
-	public Student addStudent(Student student);
+	public StudentDto addStudent(StudentDto studentDto);
 
-	public List<Student> getAllStudents();
+	public List<StudentDto> getAllStudents();
 
-	public Student updateStudent(Student student);
+	public StudentDto updateStudent(Integer studentId, StudentDto student);
 
 	public String deleteStudent(Integer studentId);
 }
