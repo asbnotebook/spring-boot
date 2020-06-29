@@ -1,7 +1,5 @@
 package com.asbnotebook.config;
 
-import java.text.SimpleDateFormat;
-
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -50,13 +48,6 @@ public class RedisListenerConfig {
 
 	@Bean
 	public Jackson2JsonRedisSerializer<Student> jackson2JsonRedisSerializer(ObjectMapper mapper) {
-		Jackson2JsonRedisSerializer<Student> serializer = new Jackson2JsonRedisSerializer<>(Student.class);
-		serializer.setObjectMapper(mapper);
-		return serializer;
-	}
-
-	@Bean
-	public ObjectMapper objectMapper() {
-		return new ObjectMapper().setDateFormat(new SimpleDateFormat("dd/MM/yyyy"));
+		return new Jackson2JsonRedisSerializer<>(Student.class);
 	}
 }
