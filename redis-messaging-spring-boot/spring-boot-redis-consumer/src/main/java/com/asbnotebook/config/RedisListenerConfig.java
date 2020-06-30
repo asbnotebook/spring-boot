@@ -12,7 +12,6 @@ import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 
 import com.asbnotebook.apiagent.StudentConsumer;
 import com.asbnotebook.dto.Student;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Configuration
 public class RedisListenerConfig {
@@ -47,7 +46,7 @@ public class RedisListenerConfig {
 	}
 
 	@Bean
-	public Jackson2JsonRedisSerializer<Student> jackson2JsonRedisSerializer(ObjectMapper mapper) {
+	public Jackson2JsonRedisSerializer<Student> jackson2JsonRedisSerializer() {
 		return new Jackson2JsonRedisSerializer<>(Student.class);
 	}
 }
