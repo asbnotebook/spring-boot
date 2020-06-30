@@ -7,7 +7,6 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 
 import com.asbnotebook.dto.Student;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Configuration
 public class RedisProducerConfig {
@@ -23,7 +22,7 @@ public class RedisProducerConfig {
 	}
 
 	@Bean
-	public Jackson2JsonRedisSerializer<Student> jackson2JsonRedisSerializer(ObjectMapper mapper) {
+	public Jackson2JsonRedisSerializer<Student> jackson2JsonRedisSerializer() {
 		return new Jackson2JsonRedisSerializer<>(Student.class);
 	}
 }
