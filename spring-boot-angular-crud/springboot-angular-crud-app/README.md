@@ -1,3 +1,7 @@
+To run the application, navigate inside the application directory and run
+`npm install`
+This will take some time to download all angular modules into local application.
+
 # SpringbootAngularCrudApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.8.
