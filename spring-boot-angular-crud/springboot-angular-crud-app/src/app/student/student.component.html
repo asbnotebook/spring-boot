@@ -1,0 +1,45 @@
+<div class="alert alert-danger" role="alert" *ngIf="_message.length > 0">
+  {{_message}}
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Sl No.</th>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Grade</th>
+      <th scope="col"></th>
+      <th scope="col"><button class="btn btn-success" (click)="open(0, content)">ADD</button></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let student of _students; index as i">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>{{student.id}}</td>
+      <td>{{ student.name }}</td>
+      <td>{{ student.grade }}</td>
+      <td><button class="btn btn-primary" (click)="open(student.id, content)">UPDATE</button></td>
+      <td><button class="btn btn-danger" (click)="deleteStudent(student.id)">DELETE</button></td>
+    </tr>
+  </tbody>
+</table>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Create/Update Student</h4>
+    <button type="button" class="close"
+      aria-label="Close" (click)="modal.dismiss('Cross click')" *ngIf="_student.id === 0">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form (ngSubmit)="createUpdate()">
+      <div class="form-group">
+        <h2>Name : </h2>
+        <input type="text" name="name" placeholder="Student Name" [(ngModel)]="_student.name"/>
+        <h2>Grade : </h2>
+        <input type="number" name="grade" [(ngModel)]="_student.grade"/>
+      </div>
+      <button type="submit" class="btn btn-success">SAVE</button>
+    </form>
+  </div>
