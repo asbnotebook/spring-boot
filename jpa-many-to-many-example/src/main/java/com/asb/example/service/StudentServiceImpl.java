@@ -3,6 +3,7 @@ package com.asb.example.service;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import javax.annotation.Resource;
@@ -58,11 +59,14 @@ public class StudentServiceImpl implements StudentService {
 	@Override
 	public String deleteStudent(Integer studentId) {
 		
-		Student student = studentRepository.getOne(studentId);
+		Optional<Student> student = studentRepository.findById(studentId);
 		//Remove the related courses from student entity.
-		student.removeCourses();
-		studentRepository.deleteById(studentId);
-		return "Student with id: " + studentId + " deleted successfully!";
+		if(student.isPresent()) {
+			student.get().removeCourses();
+			studentRepository.deleteById(student.get().getId());
+			return "Student with id: " + studentId + " deleted successfully!";
+		}
+		return null;
 	}
 
 	private void mapDtoToEntity(StudentDto studentDto, Student student) {

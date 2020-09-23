@@ -1,5 +1,6 @@
 package com.asb.example.model;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -33,4 +34,15 @@ public class Course {
 	@ManyToMany(mappedBy = "courses")
 	@JsonIgnore
 	private Set<Student> students;
+	
+	public void removeStudent(Student student) {
+		this.getStudents().remove(student);
+		student.getCourses().remove(this);
+	}
+
+	public void removeStudents() {
+		for (Student student : new HashSet<>(students)) {
+			removeStudent(student);
+		}
+	}
 }

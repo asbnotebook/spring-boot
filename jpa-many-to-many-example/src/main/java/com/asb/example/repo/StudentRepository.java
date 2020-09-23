@@ -6,4 +6,6 @@ import com.asb.example.model.Student;
 
 public interface StudentRepository extends JpaRepository<Student, Integer> {
 
+	Student findByName(String studentName);
+
 }
