@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import org.modelmapper.ModelMapper;
 
 import javax.annotation.Resource;
 
@@ -29,10 +30,13 @@ public class CourseServiceImpl implements CourseService {
 	@Transactional
 	@Override
 	public CourseDto addCourse(CourseDto courseDto) {
-		Course course = new Course();
-		mapDtoToEntity(courseDto, course);
-		Course savedCourse = courseRepository.save(course);
-		return mapEntityToDto(savedCourse);
+		ModelMapper modelMapper=new ModelMapper();
+		//Course course = new Course();
+		//mapDtoToEntity(courseDto, course);
+		Course savedCourse=modelMapper.map(courseDto,Course.class);
+		courseRepository.save(savedCourse);
+		return modelMapper.map(savedCourse,CourseDto.class);
+			//mapEntityToDto(savedCourse);
 	}
 
 	@Override
@@ -40,7 +44,8 @@ public class CourseServiceImpl implements CourseService {
 		List<CourseDto> courseDtos = new ArrayList<>();
 		List<Course> courses = courseRepository.findAll();
 		courses.stream().forEach(course -> {
-			CourseDto courseDto = mapEntityToDto(course);
+			CourseDto courseDto =modelMapper.map(course,CourseDto.class); 
+				//mapEntityToDto(course);
 			courseDtos.add(courseDto);
 		});
 		return courseDtos;
@@ -69,27 +74,27 @@ public class CourseServiceImpl implements CourseService {
 		return null;
 	}
 
-	private void mapDtoToEntity(CourseDto courseDto, Course course) {
-		course.setName(courseDto.getName());
-		if (null == course.getStudents()) {
-			course.setStudents(new HashSet<>());
-		}
-		courseDto.getStudents().stream().forEach(studentName -> {
-			Student student = studentRepository.findByName(studentName);
-			if (null == student) {
-				student = new Student();
-				student.setCourses(new HashSet<>());
-			}
-			student.setName(studentName);
-			student.addCourse(course);
-		});
-	}
+// 	private void mapDtoToEntity(CourseDto courseDto, Course course) {
+// 		course.setName(courseDto.getName());
+// 		if (null == course.getStudents()) {
+// 			course.setStudents(new HashSet<>());
+// 		}
+// 		courseDto.getStudents().stream().forEach(studentName -> {
+// 			Student student = studentRepository.findByName(studentName);
+// 			if (null == student) {
+// 				student = new Student();
+// 				student.setCourses(new HashSet<>());
+// 			}
+// 			student.setName(studentName);
+// 			student.addCourse(course);
+// 		});
+// 	}
 
-	private CourseDto mapEntityToDto(Course course) {
-		CourseDto responseDto = new CourseDto();
-		responseDto.setName(course.getName());
-		responseDto.setId(course.getId());
-		responseDto.setStudents(course.getStudents().stream().map(Student::getName).collect(Collectors.toSet()));
-		return responseDto;
-	}
+// 	private CourseDto mapEntityToDto(Course course) {
+// 		CourseDto responseDto = new CourseDto();
+// 		responseDto.setName(course.getName());
+// 		responseDto.setId(course.getId());
+// 		responseDto.setStudents(course.getStudents().stream().map(Student::getName).collect(Collectors.toSet()));
+// 		return responseDto;
+// 	}
 }
