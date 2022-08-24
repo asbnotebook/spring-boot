@@ -83,7 +83,7 @@ public class CourseServiceImpl implements CourseService {
 // 			Student student = studentRepository.findByName(studentName);
 // 			if (null == student) {
 // 				student = new Student();
-// 				student.setCourses(new HashSet<>());
+// 				student.setCourses(nfew HashSet<>());
 // 			}
 // 			student.setName(studentName);
 // 			student.addCourse(course);
