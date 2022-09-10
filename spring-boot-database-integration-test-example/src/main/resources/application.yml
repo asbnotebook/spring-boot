@@ -1,0 +1,7 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost/postgres
+    username: postgres
+    password: mysecretpassword
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
