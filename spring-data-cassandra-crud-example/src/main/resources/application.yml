@@ -1,0 +1,8 @@
+spring:
+  data:
+    cassandra:
+      keyspace-name: student_keyspace
+      schema-action: recreate
+      local-datacenter: datacenter1
+      contact-points: localhost
+      port: 9042
