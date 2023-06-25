@@ -1,0 +1,20 @@
+server:
+  port: 8081
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: asbnotebook-client-id
+            client-secret: l95AkUMZwJw0afznj4PaPOhHHgGm2hLx
+            scope: openid
+            authorization-grant-type: authorization_code
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8080/realms/ASBNotebook
+            user-name-attribute: preferred_username
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/ASBNotebook
