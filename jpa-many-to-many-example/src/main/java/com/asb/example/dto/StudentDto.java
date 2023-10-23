@@ -2,12 +2,9 @@ package com.asb.example.dto;
 
 import java.util.HashSet;
 import java.util.Set;
+import lombok.Data;
 
-import lombok.Getter;
-import lombok.Setter;
-
-@Getter
-@Setter
+@Data
 public class StudentDto {
 	private Integer id;
 	private String name;
