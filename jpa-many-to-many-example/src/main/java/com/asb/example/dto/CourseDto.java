@@ -6,8 +6,7 @@ import java.util.Set;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
+@Data
 public class CourseDto {
 	private Integer id;
 	private String name;
